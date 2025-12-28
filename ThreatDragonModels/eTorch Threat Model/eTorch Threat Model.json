@@ -1242,7 +1242,29 @@
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "34fe5062-6a63-48d4-924e-312ea41dc29d",
+                  "title": "Privilege escalation via manipulated configuration",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Elevation of privilege",
+                  "description": "Manipulated configuration data may be processed by the eTorch device in a way that grants elevated privileges or unauthorized control.\n",
+                  "mitigation": "Validate configuration data before use and enforce strict privilege separation in device firmware.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 41,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 1
+              }
             }
           },
           {
@@ -1486,7 +1508,40 @@
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "81bcff8a-3738-4767-948b-4390edea8529",
+                  "title": "Unauthorized access to cloud storage",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Attackers may gain unauthorized access to sensitive configuration data or user information stored in the cloud.",
+                  "mitigation": "Restrict access using strong access controls and encrypt sensitive data at rest.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 34,
+                  "score": ""
+                },
+                {
+                  "id": "2702148d-69c2-4064-9f0e-16ee8110c708",
+                  "title": "Loss or modification of audit data",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Audit logs stored in the cloud may be deleted or altered, preventing accountability for system actions.",
+                  "mitigation": "Store logs in tamper-resistant storage with restricted write access.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 35,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "children": []
           },
@@ -1611,7 +1666,27 @@
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "a225790a-124f-4076-84ce-79243f1d77a5",
+                  "title": "Tampering with local configuration database",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Stored configuration data in the local gateway database may be modified to alter system behavior.",
+                  "mitigation": "Apply integrity checks and strict access controls to the database.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 36,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -1644,8 +1719,27 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "c12a8322-471a-489b-98a7-0da291502ba8",
+                  "title": "Denial of service on local control communication",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "An attacker may overload the local communication channel, disrupting control of eTorch devices.",
+                  "mitigation": "Monitor local traffic and implement request throttling.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 32,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "Local Control Command\n"
@@ -1742,8 +1836,27 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "c372de19-02b9-49d8-9e45-3af0801fcf57",
+                  "title": "Information disclosure during status update transmission",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Device status information may be exposed during transmission from the eTorch device to cloud storage.",
+                  "mitigation": "Encrypt all transmitted data and verify secure communication channels.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 33,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Status Update\n"
@@ -1761,6 +1874,10 @@
               {
                 "x": 400,
                 "y": -1090
+              },
+              {
+                "x": 310,
+                "y": -1120
               }
             ]
           },
@@ -1794,8 +1911,40 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "aab34b3c-d00f-4a49-ba5d-f4f1020ad63d",
+                  "title": "Command injection via device control flow",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Malicious or malformed commands may be injected into device control messages, causing unintended device behavior.",
+                  "mitigation": "Validate and sanitize all device control commands before execution.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 30,
+                  "score": ""
+                },
+                {
+                  "id": "4751c4b6-a82e-44d0-93f7-8b7c90fbcfbd",
+                  "title": "Replay of device control commands",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Previously captured control commands may be replayed to trigger unauthorized actions",
+                  "mitigation": "Use timestamps, sequence numbers, and message authentication codes to prevent replay attacks.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 31,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Device Control Command\n"
@@ -1906,13 +2055,26 @@
                   "new": false,
                   "number": 26,
                   "score": ""
+                },
+                {
+                  "id": "a39f2361-18a9-49fb-99ae-4ec010d8f738",
+                  "title": "Denial of service on HTTPS communication channel",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "An attacker may flood the communication channel with excessive requests, preventing legitimate users from accessing the service.",
+                  "mitigation": "Apply rate limiting, traffic filtering, and network-level monitoring.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 27,
+                  "score": ""
                 }
               ],
               "trustBoundaryIds": [],
               "threatFrequency": {
                 "tampering": 0,
                 "informationDisclosure": 1,
-                "denialOfService": 0
+                "denialOfService": 1
               }
             },
             "labels": [
@@ -1933,8 +2095,8 @@
                 "y": -870
               },
               {
-                "x": 230,
-                "y": -880
+                "x": 210,
+                "y": -900
               }
             ]
           },
@@ -2124,8 +2286,40 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "c69c7957-9f5b-4112-a7d7-9fd9930077e4",
+                  "title": "Man-in-the-middle attack on HTTPS communication",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "An attacker may intercept or eavesdrop on data transmitted between applications and the cloud portal if communication is not properly secured.",
+                  "mitigation": "Enforce TLS encryption with proper certificate validation and secure cipher suites.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 28,
+                  "score": ""
+                },
+                {
+                  "id": "e53759c6-8777-403b-a96e-58446e2a95d8",
+                  "title": "Denial of service on HTTPS communication channel",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "An attacker may flood the communication channel with excessive requests, preventing legitimate users from accessing the service.",
+                  "mitigation": "Apply rate limiting, traffic filtering, and network-level monitoring.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 29,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
             },
             "labels": [
               "HTTPS Command\n"
@@ -2247,8 +2441,8 @@
           },
           {
             "position": {
-              "x": 600,
-              "y": -1080
+              "x": 620,
+              "y": -1050
             },
             "size": {
               "width": 120,
@@ -2366,7 +2560,66 @@
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "12854f09-3ade-4308-a848-92d73e241142",
+                  "title": "Unauthorized firmware or configuration modification",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Attackers may modify device configuration or firmware to compromise device security.\n",
+                  "mitigation": "Require digitally signed firmware and configuration updates.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 37,
+                  "score": ""
+                },
+                {
+                  "id": "2b902587-3874-4748-8658-fafe0bea1934",
+                  "title": "Information disclosure of device configuration",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Sensitive configuration data may be accessed by unauthorized users, revealing system settings or credentials.",
+                  "mitigation": "Encrypt configuration data at rest and restrict access to authorized processes only.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 38,
+                  "score": ""
+                },
+                {
+                  "id": "4b15c66e-8947-49dc-b7b2-6e57728c8498",
+                  "title": "Repudiation of configuration changes",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "An attacker or administrator may deny making configuration changes if actions are not properly logged.",
+                  "mitigation": "Log all configuration changes with timestamps and protect logs from modification.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 39,
+                  "score": ""
+                },
+                {
+                  "id": "9de9dac3-4f4c-48ec-ab6f-82e09ff2dd50",
+                  "title": "Configuration corruption causing device malfunction",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Corrupted or invalid configuration data may prevent the eTorch device from operating correctly.",
+                  "mitigation": "Validate configuration data before use and implement rollback or recovery mechanisms.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 40,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1
+              }
             }
           }
         ],
@@ -2375,6 +2628,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 26
+    "threatTop": 41
   }
 }
