@@ -1,0 +1,16 @@
+{
+  "version": "2.5.0",
+  "summary": {
+    "title": "eTorch Threat Model",
+    "owner": "Erwan-Kayiranga",
+    "description": "Threat model for the eTorch intelligent lighting system. The system consists of smart eTorch devices, client applications (web, mobile, and Windows), a local field gateway, and a cloud portal. Users and administrators control lighting devices locally and remotely via HTTP/HTTPS communication. The model identifies threats using the STRIDE methodology and proposes mitigations.\n",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [],
+    "diagramTop": 0,
+    "reviewer": "",
+    "threatTop": 0
+  }
+}
